@@ -1,16 +1,17 @@
 <div class="container-fluid mt-1 main-deals">
   <div class="row">
-    <div class="col-md-1 no-padding">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', 'default']">Default</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', '1']">Template 1</a>
+    <div class="col">
+      <ul class="nav thumbnail-container">
+        <li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-3" [ngStyle]="{'background-image': 'url(' + thumbnail.image + ')'}" >
+        <!--<li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-1" style="background-image: url('{{thumbnail.image}}')">-->
+          <!--<img  class="img-fluid" [src]="thumbnail.image" alt="Wigglr Logo">-->
+          <a class="nav-link thumbnail-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', thumbnail.id]"></a>
         </li>
       </ul>
     </div>
-    <div class="col-md-4">
+  </div>
+  <div class="row"> 
+    <div class="col-md-5">
       <button type="button" class="btn btn-warning btn-block">SAVE DRAFT</button>
 
       <div class="mt-3 mb-3">
@@ -31,14 +32,14 @@
             placeholder="Image Path">
         </div>
         <div class="form-group row">
-          <label for="offerAmount" class="col-sm-5 small">Offer Amount</label>
+          <label for="offerAmount" class="col-sm-3 small">Offer Amount</label>
           <div class="col">
             <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="offerAmount" name="offerAmount" id="offerAmount"
               (keyup)="onOfferAmountChange($event)" placeholder="Offer Amount">
           </div>
         </div>
         <div class="form-group row">
-          <label for="actualAmount" class="col-sm-5 small">Actual Amount</label>
+          <label for="actualAmount" class="col-sm-3 small">Actual Amount</label>
           <div class="col">
             <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="actualAmount" name="actualAmount" id="actualAmount"
               (keyup)="onActualAmountChange($event)" placeholder="Offer Amount">
@@ -46,7 +47,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="couponsAvailable" class="col-sm-5 small">Coupons Available</label>
+          <label for="couponsAvailable" class="col-sm-3 small">Coupons Available</label>
           <div class="col">
             <input type="number" min=1 class="form-control form-control-sm" name="couponsAvailable" [(ngModel)]="couponsAvailable" id="couponsAvailable"
               (keyup)="onCouponsChange($event)" placeholder="Coupons Available">
@@ -54,7 +55,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="tnc" class="col-sm-5 small">Terms & Condition</label>
+          <label for="tnc" class="col-sm-3 small">Terms & Condition</label>
           <div class="col">
             <div class="row" *ngFor="let item of tnc">
               <div class="col">
@@ -66,7 +67,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="tnc" class="col-sm-5 small">Address</label>
+          <label for="tnc" class="col-sm-3 small">Address</label>
           <div class="col">
             <div class="row" *ngFor="let addr of address">
               <div class="col">
@@ -78,27 +79,27 @@
 
 
         <div class="form-group row">
-          <label for="latitude" class="col-sm-5 small">Latitude</label>
+          <label for="latitude" class="col-sm-3 small">Latitude</label>
           <div class="col">
             <input type="number" min=1 class="form-control form-control-sm" name="latitude" [(ngModel)]="latitude" id="latitude" (keyup)="onLatitudeChange($event)"
               placeholder="Latitude">
           </div>
         </div>
         <div class="form-group row">
-          <label for="longitude" class="col-sm-5 small">Longitude</label>
+          <label for="longitude" class="col-sm-3 small">Longitude</label>
           <div class="col">
             <input type="number" min=1 class="form-control form-control-sm" name="longitude" [(ngModel)]="longitude" id="longitude" (keyup)="onLongitudeChange($event)"
               placeholder="Longitude">
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-5 small">Deal Start Date</label>
+          <label class="col-sm-3 small">Deal Start Date</label>
           <div class="col">
             <ng2-datepicker [options]="options" [(ngModel)]="startDate" placeholder="YYYY-MM-DD"></ng2-datepicker>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-5 small">Deal End Date</label>
+          <label class="col-sm-3 small">Deal End Date</label>
           <div class="col">
             <ng2-datepicker [options]="options" [(ngModel)]="endDate"  placeholder="YYYY-MM-DD"></ng2-datepicker>
           </div>

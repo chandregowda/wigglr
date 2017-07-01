@@ -1,5 +1,153 @@
-<div class="row">
-  <div class="col">
-    I'm showing Template One
+<div class="container p-4 templateContainer" style="background:white;">
+
+  <div class="row">
+    <div class="col-12">
+      <h4>{{dealService.getValueFor('title')}}</h4>
+      <p class="lead">
+        {{dealService.getValueFor('subTitle')}}
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <!--Left Side-->
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col">
+              <img class="img-fluid" [src]="dealService.getValueFor('imagePath')" alt="Yoga" width=auto height=200/>
+              <h5 class="pt-3">Description:</h5>
+              <p>{{dealService.getValueFor('dealDescription')}}</p>
+            </div>
+          </div>
+          <h5>Fine Print:</h5>
+          <ul>
+            <li *ngFor="let item of dealService.getValueFor('tnc')">{{item.name}}</li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="text-center">Rs. {{ (quantity * dealService.getValueFor('offerAmount')) }}</h2>
+          <div class="form-group row">
+            <div class="col">
+              <button type="submit" class="btn btn-success btn-block">BUY NOW!</button>
+              <p class="small text-center">{{dealService.getValueFor('offerAmount')}} per coupon</p>
+            </div>
+          </div>
+          <div class="form-group row no-gutters">
+            <label for="quantity" class="col-8 small">Number of Coupons</label>
+            <div class="col">
+              <input value=1 min="1" max="99999" type="number" class="form-control form-control-sm" [(ngModel)]="quantity" id="quantity"
+                placeholder="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="small">Only <b>{{dealService.getValueFor('couponsAvailable')}}</b> coupons Left</span>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col">
+              <h6>Savings</h6>
+              <div class="row no-gutters">
+                <div class="col-6">
+                  <div class="p-1">
+                    <div class="card card-inverse card-primary">
+                      <div class="card-block text-center no-padding pt-3 pb-3 white-font">
+                        <h6 class="card-subtitle small">Saved</h6>
+                        <div class="card-text small">{{savedAmount}}%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-1">
+                    <div class="card card-inverse card-success">
+                      <div class="card-block text-center no-padding pt-3 pb-3 white-font">
+                        <h6 class="card-subtitle small">Value</h6>
+                        <div class="card-text small">{{ (quantity * dealService.getValueFor('actualAmount')).toFixed(2) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+          <div class="row text-center">
+            <div class="col">
+              <h6>Time Left to buy</h6>
+              <div class="row  no-gutters">
+                <div class="col-4">
+                  <div class="p-1">
+                    <div class="card card-inverse card-info">
+                      <div class="card-block text-center no-gutters remaining-time white-font">
+                        <h6 class="card-subtitle">Days</h6>
+                        <div class="card-text">10</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-1">
+                    <div class="card card-inverse card-warning">
+                      <div class="card-block text-center no-gutters remaining-time white-font">
+                        <h6 class="card-subtitle">Hrs</h6>
+                        <div class="card-text">18</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-1 text-center no-gutters">
+                    <div class="card card-inverse card-danger">
+                      <div class="card-block text-center no-gutters remaining-time white-font">
+                        <h6 class="card-subtitle">Mins</h6>
+                        <div class="card-text">38</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<hr>-->
+      <div class="row">
+        <div class="col">
+          <span>Share : </span>
+          <!--https://github.com/cedvdb/ng2share-->
+          <span class="customizable">
+                <share-container 
+                  direction="horizontal" 
+                  addedText="my deal description"
+                  [properties]="{url:'http://chandregowda123.com', title:'my title', description:'my desc',img:' an image', via:'Ced_VDB', hashtags:'someHashTag'}"
+                  [expandable]="false" 
+                  [textEnabled]="false" 
+                  [platforms]="['twitter','facebook','googlePlus','linkedin']"
+                  [secondaryPlatforms]="['reddit','stumbleUpon','tumblr','pinterest','mail']"
+                >
+                </share-container>               
+              </span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>{{'Address:'}}</h5>
+
+          <span class="no-gutter" *ngFor="let addr of dealService.getValueFor('address')">
+              {{addr.line}}
+            </span>
+        </div>
+        <div class="col">
+          <!--Uncomment below to display Google Maps with location marker-->
+          <app-google-maps latitude="dealService.getValueFor('latitude')" longitude="dealService.getValueFor('longitude')"></app-google-maps>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

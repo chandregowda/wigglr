@@ -1,0 +1,15 @@
+.templateContainer {
+    border: 1px solid #e5e6e9 #dfe0e4 #d0d1d5;;
+    border-radius: 3px;
+    box-shadow: 0 0 1px silver;
+}
+.remaining-time {
+    padding:10px 5px;
+    /*background: black;*/
+}
+.white-font .card-subtitle, .white-font .card-text {
+    color:white !important;
+}
+.no-padding {
+    padding: 0;
+}

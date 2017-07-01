@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DealsService } from "app/deals.service";
-import { round } from "lodash/round";
 
 @Component({
   selector: 'app-default',
@@ -9,7 +8,7 @@ import { round } from "lodash/round";
 })
 export class DefaultComponent implements OnInit {
 
- savedAmount: number;
+  savedAmount: number;
   constructor(public dealService: DealsService) { }
   quantity:number;
   ngOnInit() {
@@ -18,7 +17,7 @@ export class DefaultComponent implements OnInit {
       this.dealService.dealChanged.subscribe(
           ()=>{
             this.calculateSavedPercentage();
-            // console.log('Title'+ this.dealService.getValueFor('title'));
+            console.log('Title'+ this.dealService.getValueFor('title'));
           }
         );
   }
@@ -28,6 +27,5 @@ export class DefaultComponent implements OnInit {
       let actualAmount = parseFloat(this.dealService.getValueFor('actualAmount')) || 1;
       let savedAmount =  parseFloat((100-(offerAmount * 100 / actualAmount)).toFixed(2));
       this.savedAmount = savedAmount;
-      // this.savedAmount = round(this.savedAmount, 2);
   }
 }

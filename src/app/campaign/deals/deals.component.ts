@@ -9,7 +9,7 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-   
+
   startDate: DateModel;
   endDate: DateModel;
   options: DatePickerOptions;
@@ -30,7 +30,7 @@ export class DealsComponent implements OnInit {
   socialMediaDescription: string = 'Google Search Engine is the best';
   socialMediaVia: string = 'Google Via';
   socialMediaHashTag: string = '@Google';
-  
+  thumbnails: Array<Object>;
 
   constructor(public dealService: DealsService) { }
 
@@ -52,14 +52,34 @@ export class DealsComponent implements OnInit {
     this.dealService.onSocialMediaHashTag(this.socialMediaHashTag);
     this.dealService.onSocialMediaVia(this.socialMediaVia);
 
-    this.options = new DatePickerOptions({initialDate:new Date(), autoApply:true});
+    this.options = new DatePickerOptions({ initialDate: new Date(), autoApply: true });
+
+    this.thumbnails = [
+      {name:'Default', id:'default', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Spring', id:'1', image:'assets/images/thumbnails/deals/template-one.png'},
+      {name:'Lavendar', id:'2', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
+      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'}
+    ];
   }
 
   addNewTnc() {
-    this.tnc.push({name: ''});
+    this.tnc.push({ name: '' });
     this.dealService.onTncChanged(this.tnc);
   }
-  onTitleChange(event:string) {
+  onTitleChange(event: string) {
     this.dealService.onTitleChanged(this.title);
   }
 
