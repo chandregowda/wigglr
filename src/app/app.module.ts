@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePickerModule } from 'ng2-datepicker';
 import { ShareModule } from 'ng2share/share.module';
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ShareModule } from 'ng2share/share.module';
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ShareModule
+    ShareModule,
+    DatePickerModule
   ],
   providers: [TemplateService, DealsService],
   bootstrap: [AppComponent]

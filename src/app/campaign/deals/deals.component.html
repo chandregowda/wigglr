@@ -90,6 +90,19 @@
               placeholder="Longitude">
           </div>
         </div>
+        <div class="form-group row">
+          <label class="col-sm-5 small">Deal Start Date</label>
+          <div class="col">
+            <ng2-datepicker [options]="options" [(ngModel)]="startDate" placeholder="YYYY-MM-DD"></ng2-datepicker>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 small">Deal End Date</label>
+          <div class="col">
+            <ng2-datepicker [options]="options" [(ngModel)]="endDate"  placeholder="YYYY-MM-DD"></ng2-datepicker>
+          </div>
+        </div>
+
       </div>
 
 

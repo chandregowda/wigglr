@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Deals } from '../../deals.model';
 import { DealsService } from '../../deals.service';
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 @Component({
   selector: 'app-deals',
@@ -9,21 +10,23 @@ import { DealsService } from '../../deals.service';
 })
 export class DealsComponent implements OnInit {
    
-    title: string = '60 Days of Yoga for just Rs. 600 !';
-    subTitle: string = ' Marathalli, Bengaluru.';
-    actualAmount: number = 1200;
-    offerAmount: number = 600;
-    couponsAvailable: number = 100;
+  startDate: DateModel;
+  endDate: DateModel;
+  options: DatePickerOptions;
+
+  title: string = '60 Days of Yoga for just Rs. 600 !';
+  subTitle: string = ' Marathalli, Bengaluru.';
+  actualAmount: number = 1200;
+  offerAmount: number = 600;
+  couponsAvailable: number = 100;
     dealDescription: string= 'Minim quis adipisicing pariatur ut duis sint pariatur. Tempor ut ut quis consequat reprehenderit. Reprehenderit nulla veniam duis esse dolor ea cupidatat pariatur enim velit proident cupidatat.';
-    imagePath: string = 'https://static.sharecare.com/promo/topics/yoga-safety-1.jpg';
+  imagePath: string = 'https://static.sharecare.com/promo/topics/yoga-safety-1.jpg';
     tnc: Array<Object> = [{name: 'Enjoy 60 days of Yoga for just Rs. 600 !'},{name: 'With just Rs. 10 a day'} ,{name: 'World Class training by Modi'}];
     address: Array<Object> = [{line: '#42, 5th Cross'},{line: 'BCC Layout (Behind Vidya Sagar School)'} ,{line: 'ChandraLayout, Bangalore Karnataka'}];
-    longitude: number = 77.538152;
-    latitude: number = 12.961092;
+  longitude: number = 77.538152;
+  latitude: number = 12.961092;
 
-  constructor(public dealService: DealsService) {
-
-   }
+  constructor(public dealService: DealsService) { }
 
   ngOnInit() {
     this.dealService.onTitleChanged(this.title);
@@ -38,7 +41,7 @@ export class DealsComponent implements OnInit {
     this.dealService.onLatitudeChanged(this.latitude);
     this.dealService.onLongitudeChanged(this.longitude);
 
-    
+    this.options = new DatePickerOptions({initialDate:new Date(), autoApply:true});
   }
 
   addNewTnc() {
