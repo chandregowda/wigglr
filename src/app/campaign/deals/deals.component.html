@@ -1,0 +1,72 @@
+<div class="container-fluid mt-1 main-deals">
+  <div class="row">
+    <div class="col-md-1 no-padding">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', 'default']">Default</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', '1']">Template 1</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-warning btn-block">SAVE DRAFT</button>
+
+      <div class="mt-3 mb-3">
+        <div class="form-group">
+          <input type="text" id="title" class="form-control form-control-sm" [(ngModel)]="title" name="title" (keyup)="onTitleChange($event)"
+            placeholder="Title">
+        </div>
+        <div class="form-group">
+          <input type="text" id="subTitle" [(ngModel)]="subTitle" name="subTitle" class="form-control form-control-sm" (keyup)="onSubTilteChange($event)"
+            placeholder="SubTitle">
+        </div>
+        <div class="form-group">
+          <textarea id="dealDescription" [(ngModel)]="dealDescription" name="dealDescription" class="form-control form-control-sm" (keyup)="onDescriptionChange($event)"
+            placeholder="Description" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" id="imagePath" [(ngModel)]="imagePath" name="imagePath" class="form-control form-control-sm" (keyup)="onImagePathChange($event)"
+            placeholder="Image Path">
+        </div>
+        <div class="form-group row">
+          <label for="offerAmount" class="col-sm-5 small">Offer Amount</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="offerAmount" name="offerAmount" id="offerAmount" (keyup)="onOfferAmountChange($event)" placeholder="Offer Amount">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="actualAmount" class="col-sm-5 small">Actual Amount</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="actualAmount" name="actualAmount" id="actualAmount" (keyup)="onActualAmountChange($event)" placeholder="Offer Amount">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="couponsAvailable" class="col-sm-5 small">Coupons Available</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm" name="couponsAvailable" [(ngModel)]="couponsAvailable" id="couponsAvailable" (keyup)="onCouponsChange($event)" placeholder="Coupons Available">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="latitude" class="col-sm-5 small">Latitude</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm" name="latitude" [(ngModel)]="latitude" id="latitude" (keyup)="onLatitudeChange($event)" placeholder="Latitude">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="longitude" class="col-sm-5 small">Longitude</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm" name="longitude" [(ngModel)]="longitude" id="longitude" (keyup)="onLongitudeChange($event)" placeholder="Longitude">
+          </div>
+        </div>
+      </div>
+
+
+      <button type="button" class="btn btn-primary btn-block">SAVE + PUBLISH</button>
+    </div>
+    <div class="col template-container">
+      <router-outlet> </router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.nav-link.active {
+    color:blue;
+    font-weight: bold;
+}
+.template-container {
+    min-width:300px;
+    max-width:800px;
+}
+.no-padding {
+    padding:0;
+}
+.main-deals > .row>.col, .main-deals > .row>[class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    /*background-color: rgba(86,61,124,.15);*/
+    border: 1px solid rgba(86,61,124,.2);
+}   
