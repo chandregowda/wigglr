@@ -11,8 +11,8 @@ export class Deals {
                 public timeLeft: Date= new Date(),
                 public gallery: Array<String>=[] ,
                 public dealDescription: String='',
-                public tnc: Array<string>=[],
-                public address: String='',
+                public tnc: Array<object>=[],
+                public address: Array<Object>=[],
                 public latitude: Number=0,
                 public longitude: Number=0) {
 

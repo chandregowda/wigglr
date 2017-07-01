@@ -108,11 +108,9 @@
               <p>{{dealService.getValueFor('dealDescription')}}</p>
             </div>
           </div>
-          <h5>Fine Print:</h5>
+          <h5>Fine Print:</h5>          
           <ul>
-            <li>Enjoy 60 days of Yoga for just Rs. 600 !</li>
-            <li>With just Rs. 10 a day </li>
-            <li>World Class training by Modi</li>
+            <li *ngFor="let item of dealService.getValueFor('tnc')">{{item.name}}</li>
           </ul>
         </div>
       </div>
@@ -138,13 +136,11 @@
       <hr>
       <div class="row">
         <div class="col-sm-4">
-          <h5>{{'Raja Yoga Center'}}</h5>
-          <pre>
-Dolore sunt ea 
-occaecat est do 
-proident proident 
-reprehenderit ullamco sit 
-            </pre>
+          <h5>{{'Address:'}}</h5>
+          
+          <span class="no-gutter" *ngFor="let addr of dealService.getValueFor('address')">
+              {{addr.line}}
+            </span>
         </div>
         <div class="col">
           <!--Uncomment below to display Google Maps with location marker-->
