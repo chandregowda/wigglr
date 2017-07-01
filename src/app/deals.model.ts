@@ -13,10 +13,11 @@ export class Deals {
                 public dealDescription: String='',
                 public tnc: Array<object>=[],
                 public address: Array<Object>=[],
+                public socialMediaURL: String='',
+                public socialMediaTitle: String='',
+                public socialMediaDescription: String='',
+                public socialMediaVia: String='',
+                public socialMediaHashTag: String='',
                 public latitude: Number=0,
-                public longitude: Number=0) {
-
-                    
-
-    }
+                public longitude: Number=0) {}
 }

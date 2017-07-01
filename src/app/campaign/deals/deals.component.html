@@ -44,6 +44,7 @@
               (keyup)="onActualAmountChange($event)" placeholder="Offer Amount">
           </div>
         </div>
+
         <div class="form-group row">
           <label for="couponsAvailable" class="col-sm-5 small">Coupons Available</label>
           <div class="col">
@@ -100,6 +101,45 @@
           <label class="col-sm-5 small">Deal End Date</label>
           <div class="col">
             <ng2-datepicker [options]="options" [(ngModel)]="endDate"  placeholder="YYYY-MM-DD"></ng2-datepicker>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="socialMediaURL" class="col-sm-5 small">Social Media URL</label>
+          <div class="col">
+            <input type="string" class="form-control form-control-sm" name="socialMediaURL" [(ngModel)]="socialMediaURL" id="socialMediaURL"
+              (keyup)="onSocialMediaURLChange($event)" placeholder="URL">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialMediaTitle" class="col-sm-5 small">Social Media Title</label>
+          <div class="col">
+            <input type="string" class="form-control form-control-sm" name="socialMediaTitle" [(ngModel)]="socialMediaTitle" id="socialMediaTitle"
+              (keyup)="onSocialMediaTitleChange($event)" placeholder="Title">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialMediaDescription" class="col-sm-5 small">Social Media Desc</label>
+          <div class="col">
+            <input type="string" class="form-control form-control-sm" name="socialMediaDescription" [(ngModel)]="socialMediaDescription" id="socialMediaDescription"
+              (keyup)="onSocialMediaDescriptionChange($event)" placeholder="Description">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialMediaVia" class="col-sm-5 small">Social Media Via</label>
+          <div class="col">
+            <input type="string" class="form-control form-control-sm" name="socialMediaVia" [(ngModel)]="socialMediaVia" id="socialMediaVia"
+              (keyup)="onSocialMediaViaChange($event)" placeholder="Via">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialMediaHashTag" class="col-sm-5 small">Social Media Hashtag</label>
+          <div class="col">
+            <input type="string" class="form-control form-control-sm" name="socialMediaHashTag" [(ngModel)]="socialMediaHashTag" id="socialMediaHashTag"
+              (keyup)="onSocialMediaHashTagChange($event)" placeholder="Hash Tag">
           </div>
         </div>
 

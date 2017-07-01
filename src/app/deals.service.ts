@@ -58,6 +58,26 @@ export class DealsService {
         this.dealChanged.emit(this.deal) ;
     }
 
+    onSocialMediaURL(url){
+        this.deal.socialMediaURL = url;
+        this.dealChanged.emit(this.deal);
+    }
+    onSocialMediaTitle(title){
+        this.deal.socialMediaTitle = title;
+        this.dealChanged.emit(this.deal);
+    }    
+    onSocialMediaDescription(description){
+        this.deal.socialMediaDescription = description;
+        this.dealChanged.emit(this.deal);
+    }
+    onSocialMediaVia(via){
+        this.deal.socialMediaVia = via;
+        this.dealChanged.emit(this.deal);
+    }
+    onSocialMediaHashTag(hashtag){
+        this.deal.socialMediaHashTag = hashtag;
+        this.dealChanged.emit(this.deal);
+    }
     onLatitudeChanged(latitude){
         this.deal.latitude = latitude;
         //this.dealChanged.emit(this.deal);
