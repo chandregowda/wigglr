@@ -36,6 +36,7 @@
 }
 
 .dragger {
+    z-index: 10;
     height: 10px;
     width: 200px;
     line-height: 0px;
@@ -54,17 +55,22 @@
     display: none;
 }
 div.thumbnail-docker-menu {
-    visibility:hidden;
-    height:0;
-    transition:  visibility 1.5s, height 1.5s;
+    visibility:inherit;
+    height:160px;
+    opacity: 1;
+    transition:  visibility 1s, height 1s, opacity 1s;
 }
 #thumbnail-docker:checked ~ div {
-    visibility:inherit;
-    height:180px;
+    visibility:hidden;
+    height:0;
+    opacity: 0;
 }
 .bg-white {
     background: white;
 }
 input.small-width {
     width:100px;
+}
+.form-group label {
+    white-space: nowrap;
 }
