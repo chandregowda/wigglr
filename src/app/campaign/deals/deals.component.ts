@@ -15,10 +15,10 @@ export class DealsComponent implements OnInit {
   options: DatePickerOptions;
 
   title: string = '60 Days of Yoga for just Rs. 600 !';
-  subTitle: string = ' Marathalli, Bengaluru.';
-  actualAmount: number = 1200;
-  offerAmount: number = 600;
-  couponsAvailable: number = 100;
+  subTitle: string = 'Marathalli, Bengaluru.';
+  actualAmount: number = 1000;
+  offerAmount: number = 800;
+  couponsAvailable: number = 500;
   dealDescription: string= 'Minim quis adipisicing pariatur ut duis sint pariatur. Tempor ut ut quis consequat reprehenderit. Reprehenderit nulla veniam duis esse dolor ea cupidatat pariatur enim velit proident cupidatat.';
   imagePath: string = 'https://static.sharecare.com/promo/topics/yoga-safety-1.jpg';
   tnc: Array<Object> = [{name: 'Enjoy 60 days of Yoga for just Rs. 600 !'},{name: 'With just Rs. 10 a day'} ,{name: 'World Class training by Modi'}];
@@ -31,6 +31,8 @@ export class DealsComponent implements OnInit {
   socialMediaVia: string = 'Google Via';
   socialMediaHashTag: string = '@Google';
   thumbnails: Array<Object>;
+  savedAmount: number;
+  savedPercentage: number;
 
   constructor(public dealService: DealsService) { }
 
@@ -69,11 +71,11 @@ export class DealsComponent implements OnInit {
       {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
       {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
       {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
-      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
-      {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'},
       {name:'Dark Night', id:'3', image:'assets/images/thumbnails/deals/default.png'}
     ];
+
   }
+
 
   addNewTnc() {
     this.tnc.push({ name: '' });

@@ -1,61 +1,64 @@
 <div class="container-fluid mt-1 main-deals">
   <div class="row">
-    <div class="col">
-      <ul class="nav thumbnail-container">
-        <li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-3" [ngStyle]="{'background-image': 'url(' + thumbnail.image + ')'}" >
-        <!--<li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-1" style="background-image: url('{{thumbnail.image}}')">-->
-          <!--<img  class="img-fluid" [src]="thumbnail.image" alt="Wigglr Logo">-->
-          <a class="nav-link thumbnail-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', thumbnail.id]"></a>
-        </li>
-      </ul>
+    <div class="col no-padding">
+      <div class="row">
+        <div class="col text-center">
+          <label class="dragger" for="thumbnail-docker" title="Show / Hide Thumbnails">. . .</label>
+          <input type="checkbox" id="thumbnail-docker">
+          <div class="thumbnail-docker-menu">
+            <ul class="nav thumbnail-container">
+              <li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-3" [ngStyle]="{'background-image': 'url(' + thumbnail.image + ')'}">
+                <!--<li *ngFor="let thumbnail of thumbnails" class="nav-item thumbnails m-1" style="background-image: url('{{thumbnail.image}}')">-->
+                <!--<img  class="img-fluid" [src]="thumbnail.image" alt="Wigglr Logo">-->
+                <a class="nav-link thumbnail-link" routerLinkActive="active" [routerLink]="['/deals', 'templates', thumbnail.id]"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="row"> 
-    <div class="col-md-5">
+
+  <div class="row">
+    <div class="col-md-5 p-3 bg-white">
       <button type="button" class="btn btn-warning btn-block">SAVE DRAFT</button>
 
       <div class="mt-3 mb-3">
-        <div class="form-group">
-          <input type="text" id="title" class="form-control form-control-sm" [(ngModel)]="title" name="title" (keyup)="onTitleChange($event)"
-            placeholder="Title">
-        </div>
-        <div class="form-group">
-          <input type="text" id="subTitle" [(ngModel)]="subTitle" name="subTitle" class="form-control form-control-sm" (keyup)="onSubTilteChange($event)"
-            placeholder="SubTitle">
-        </div>
-        <div class="form-group">
-          <textarea id="dealDescription" [(ngModel)]="dealDescription" name="dealDescription" class="form-control form-control-sm"
-            (keyup)="onDescriptionChange($event)" placeholder="Description" rows="5"></textarea>
-        </div>
-        <div class="form-group">
-          <input type="text" id="imagePath" [(ngModel)]="imagePath" name="imagePath" class="form-control form-control-sm" (keyup)="onImagePathChange($event)"
-            placeholder="Image Path">
-        </div>
+
         <div class="form-group row">
-          <label for="offerAmount" class="col-sm-3 small">Offer Amount</label>
+          <label for="title" class="col-sm-3 small">Main Title</label>
           <div class="col">
-            <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="offerAmount" name="offerAmount" id="offerAmount"
-              (keyup)="onOfferAmountChange($event)" placeholder="Offer Amount">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="actualAmount" class="col-sm-3 small">Actual Amount</label>
-          <div class="col">
-            <input type="number" min=1 class="form-control form-control-sm" [(ngModel)]="actualAmount" name="actualAmount" id="actualAmount"
-              (keyup)="onActualAmountChange($event)" placeholder="Offer Amount">
+            <input type="text" id="title" class="form-control form-control-sm" [(ngModel)]="title" name="title" (keyup)="onTitleChange($event)"
+              placeholder="Title">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="couponsAvailable" class="col-sm-3 small">Coupons Available</label>
+          <label for="subTitle" class="col-sm-3 small">Sub Title</label>
           <div class="col">
-            <input type="number" min=1 class="form-control form-control-sm" name="couponsAvailable" [(ngModel)]="couponsAvailable" id="couponsAvailable"
-              (keyup)="onCouponsChange($event)" placeholder="Coupons Available">
+            <input type="text" id="subTitle" [(ngModel)]="subTitle" name="subTitle" class="form-control form-control-sm" (keyup)="onSubTilteChange($event)"
+              placeholder="SubTitle">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="tnc" class="col-sm-3 small">Terms & Condition</label>
+          <label for="imagePath" class="col-sm-3 small">Image URL</label>
+          <div class="col">
+            <input type="text" id="imagePath" [(ngModel)]="imagePath" name="imagePath" class="form-control form-control-sm" (keyup)="onImagePathChange($event)"
+              placeholder="Image Path">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="dealDescription" class="col-sm-3 small">Description</label>
+          <div class="col">
+            <textarea id="dealDescription" [(ngModel)]="dealDescription" name="dealDescription" class="form-control form-control-sm"
+              (keyup)="onDescriptionChange($event)" placeholder="Description" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tnc" class="col-sm-3 small">Fine Print</label>
           <div class="col">
             <div class="row" *ngFor="let item of tnc">
               <div class="col">
@@ -77,21 +80,6 @@
           </div>
         </div>
 
-
-        <div class="form-group row">
-          <label for="latitude" class="col-sm-3 small">Latitude</label>
-          <div class="col">
-            <input type="number" min=1 class="form-control form-control-sm" name="latitude" [(ngModel)]="latitude" id="latitude" (keyup)="onLatitudeChange($event)"
-              placeholder="Latitude">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="longitude" class="col-sm-3 small">Longitude</label>
-          <div class="col">
-            <input type="number" min=1 class="form-control form-control-sm" name="longitude" [(ngModel)]="longitude" id="longitude" (keyup)="onLongitudeChange($event)"
-              placeholder="Longitude">
-          </div>
-        </div>
         <div class="form-group row">
           <label class="col-sm-3 small">Deal Start Date</label>
           <div class="col">
@@ -101,11 +89,47 @@
         <div class="form-group row">
           <label class="col-sm-3 small">Deal End Date</label>
           <div class="col">
-            <ng2-datepicker [options]="options" [(ngModel)]="endDate"  placeholder="YYYY-MM-DD"></ng2-datepicker>
+            <ng2-datepicker [options]="options" [(ngModel)]="endDate" placeholder="YYYY-MM-DD"></ng2-datepicker>
           </div>
         </div>
+
         <div class="form-group row">
-          <label for="socialMediaURL" class="col-sm-5 small">Social Media URL</label>
+          <label for="offerAmount" class="col-sm-3 small">Offer Amount</label>
+          <div class="col-sm-3">
+            <input type="number" min=1 class="form-control form-control-sm small-width" [(ngModel)]="offerAmount" name="offerAmount"
+              id="offerAmount" (keyup)="onOfferAmountChange($event)" placeholder="Offer Amount">
+          </div>
+          <label for="actualAmount" class="col-sm-3 small">Actual Amount</label>
+          <div class="col-sm-3">
+            <input type="number" min=1 class="form-control form-control-sm small-width" [(ngModel)]="actualAmount" name="actualAmount"
+              id="actualAmount" (keyup)="onActualAmountChange($event)" placeholder="Offer Amount">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="couponsAvailable" class="col-sm-3 small">Coupons Available</label>
+          <div class="col">
+            <input type="number" min=1 class="form-control form-control-sm small-width" name="couponsAvailable" [(ngModel)]="couponsAvailable"
+              id="couponsAvailable" (keyup)="onCouponsChange($event)" placeholder="Coupons Available">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="latitude" class="col-sm-3 small">Latitude</label>
+          <div class="col-sm-3">
+            <input type="number" min=1 class="form-control form-control-sm small-width" name="latitude" [(ngModel)]="latitude" id="latitude"
+              (keyup)="onLatitudeChange($event)" placeholder="Latitude">
+          </div>
+
+          <label for="longitude" class="col-sm-3 small">Longitude</label>
+          <div class="col-sm-3">
+            <input type="number" min=1 class="form-control form-control-sm small-width" name="longitude" [(ngModel)]="longitude" id="longitude"
+              (keyup)="onLongitudeChange($event)" placeholder="Longitude">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialMediaURL" class="col-sm-3 small">Social Media URL</label>
           <div class="col">
             <input type="string" class="form-control form-control-sm" name="socialMediaURL" [(ngModel)]="socialMediaURL" id="socialMediaURL"
               (keyup)="onSocialMediaURLChange($event)" placeholder="URL">
@@ -113,7 +137,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="socialMediaTitle" class="col-sm-5 small">Social Media Title</label>
+          <label for="socialMediaTitle" class="col-sm-3 small">Social Media Title</label>
           <div class="col">
             <input type="string" class="form-control form-control-sm" name="socialMediaTitle" [(ngModel)]="socialMediaTitle" id="socialMediaTitle"
               (keyup)="onSocialMediaTitleChange($event)" placeholder="Title">
@@ -121,15 +145,15 @@
         </div>
 
         <div class="form-group row">
-          <label for="socialMediaDescription" class="col-sm-5 small">Social Media Desc</label>
+          <label for="socialMediaDescription" class="col-sm-3 small">Social Media Desc</label>
           <div class="col">
-            <input type="string" class="form-control form-control-sm" name="socialMediaDescription" [(ngModel)]="socialMediaDescription" id="socialMediaDescription"
-              (keyup)="onSocialMediaDescriptionChange($event)" placeholder="Description">
+            <input type="string" class="form-control form-control-sm" name="socialMediaDescription" [(ngModel)]="socialMediaDescription"
+              id="socialMediaDescription" (keyup)="onSocialMediaDescriptionChange($event)" placeholder="Description">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="socialMediaVia" class="col-sm-5 small">Social Media Via</label>
+          <label for="socialMediaVia" class="col-sm-3 small">Social Media Via</label>
           <div class="col">
             <input type="string" class="form-control form-control-sm" name="socialMediaVia" [(ngModel)]="socialMediaVia" id="socialMediaVia"
               (keyup)="onSocialMediaViaChange($event)" placeholder="Via">
@@ -137,19 +161,18 @@
         </div>
 
         <div class="form-group row">
-          <label for="socialMediaHashTag" class="col-sm-5 small">Social Media Hashtag</label>
+          <label for="socialMediaHashTag" class="col-sm-3 small">Social Media Hashtag</label>
           <div class="col">
             <input type="string" class="form-control form-control-sm" name="socialMediaHashTag" [(ngModel)]="socialMediaHashTag" id="socialMediaHashTag"
               (keyup)="onSocialMediaHashTagChange($event)" placeholder="Hash Tag">
           </div>
         </div>
-
       </div>
 
 
       <button type="button" class="btn btn-primary btn-block">SAVE + PUBLISH</button>
     </div>
-    <div class="col template-container">
+    <div class="col template-container p-2 bg-white">
       <router-outlet> </router-outlet>
     </div>
   </div>

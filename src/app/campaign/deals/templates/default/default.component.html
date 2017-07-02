@@ -24,7 +24,7 @@
           <div class="form-group row no-gutters">
             <label for="quantity" class="col-8 small">Number of Coupons</label>
             <div class="col">
-              <input value=1 min="1" max="99999" type="number" class="form-control form-control-sm" [(ngModel)]="quantity" id="quantity" placeholder="">
+              <input value=1 min="1" max="99999" type="number" class="form-control form-control-sm" [(ngModel)]="quantity" id="quantity">
             </div>
           </div>
           <div class="row">
@@ -41,8 +41,8 @@
                   <div class="p-1">
                     <div class="card card-inverse card-primary">
                       <div class="card-block text-center no-padding pt-3 pb-3 white-font">
-                        <h6 class="card-subtitle small">Saved</h6>
-                        <div class="card-text small">{{savedAmount}}%</div>
+                        <h6 class="card-subtitle small">Value</h6>
+                        <div class="card-text small">{{ (quantity * dealService.getValueFor('actualAmount')).toFixed(2)}}</div>
                       </div>
                     </div>
                   </div>
@@ -51,8 +51,8 @@
                   <div class="p-1">
                     <div class="card card-inverse card-success">
                       <div class="card-block text-center no-padding pt-3 pb-3 white-font">
-                        <h6 class="card-subtitle small">Value</h6>
-                        <div class="card-text small">{{ (quantity * dealService.getValueFor('actualAmount')).toFixed(2) }}</div>
+                        <h6 class="card-subtitle small">Saved</h6>
+                        <div class="card-text small">{{ (quantity * (dealService.getValueFor('actualAmount') - dealService.getValueFor('offerAmount'))).toFixed(2) }}</div>
                       </div>
                     </div>
                   </div>

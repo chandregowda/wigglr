@@ -2,7 +2,7 @@ import { Deals } from './deals.model';
 import { EventEmitter } from "@angular/core";
 
 export class DealsService {
-    public deal: Deals = new Deals('Title', 'Sub Title');
+    public deal: Deals = new Deals();
     
     dealChanged = new EventEmitter<Deals>();
 
