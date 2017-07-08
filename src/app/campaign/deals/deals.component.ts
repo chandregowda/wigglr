@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Deals } from '../../deals.model';
 import { DealsService } from '../../deals.service';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+import { FileUploader } from 'ng2-file-upload';
 
+const URL = '/api/';
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-
+  public uploader:FileUploader = new FileUploader({url: URL});
   startDate: DateModel;
   endDate: DateModel;
   options: DatePickerOptions;

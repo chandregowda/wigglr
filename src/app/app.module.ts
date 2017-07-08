@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePickerModule } from 'ng2-datepicker';
 import { ShareModule } from 'ng2share/share.module';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShareModule } from 'ng2share/share.module';
     DefaultComponent,
     TemplatesComponent,
     TemplateOneComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
