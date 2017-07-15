@@ -3,15 +3,19 @@ import { Deals } from '../../deals.model';
 import { DealsService } from '../../deals.service';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { FileUploader } from 'ng2-file-upload';
+import { config } from '../../config';
 
-const URL = '/api/';
+
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-  public uploader:FileUploader = new FileUploader({url: URL});
+
+  url = config.serverURL;
+  public uploader:FileUploader = new FileUploader({url: this.url +'/upload'});
+ 
   startDate: DateModel;
   endDate: DateModel;
   options: DatePickerOptions;
@@ -37,7 +41,7 @@ export class DealsComponent implements OnInit {
   savedPercentage: number;
 
   constructor(public dealService: DealsService) { }
-
+    
   ngOnInit() {
     this.dealService.onTitleChanged(this.title);
     this.dealService.onSubTitleChanged(this.subTitle);
