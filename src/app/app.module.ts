@@ -10,6 +10,7 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { HeaderComponent } from './header/header.component';
 import { TemplateService } from './template.service';
 import { DealsService } from './deals.service';
+import { WebApiObservableService } from './web-api-observable.service';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePickerModule } from 'ng2-datepicker';
 import { ShareModule } from 'ng2share/share.module';
 import { FileSelectDirective } from 'ng2-file-upload';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ShareModule,
     DatePickerModule
   ],
-  providers: [TemplateService, DealsService],
+  providers: [TemplateService, DealsService, WebApiObservableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

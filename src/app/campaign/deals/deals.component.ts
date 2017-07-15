@@ -4,6 +4,7 @@ import { DealsService } from '../../deals.service';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { FileUploader } from 'ng2-file-upload';
 import { config } from '../../config';
+import { WebApiObservableService } from '../../web-api-observable.service';
 
 
 @Component({
@@ -40,9 +41,14 @@ export class DealsComponent implements OnInit {
   savedAmount: number;
   savedPercentage: number;
 
-  constructor(public dealService: DealsService) { }
+  constructor(public dealService: DealsService, public userRestApi: WebApiObservableService) { }
     
   ngOnInit() {
+    this.userRestApi.getService('/list').subscribe(
+      result => console.log("Get List:  " + result),
+      error => console.log("Error Message:  " + error)
+
+    );
     this.dealService.onTitleChanged(this.title);
     this.dealService.onSubTitleChanged(this.subTitle);
     this.dealService.onActualAmountChanged(this.actualAmount);
